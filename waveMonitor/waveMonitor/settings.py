@@ -25,7 +25,7 @@ SECRET_KEY = 'lcr(s$rnrq6b#b!@!&oawz%%8laytk0vpnv_pnkzm0so(q7lqb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
