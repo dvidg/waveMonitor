@@ -51,7 +51,7 @@ def getSwellData(b, gdt, x):
 
 	return swell_data
 
-def getData(b):
+def getData(b, boundTime):
 	swell = [b[0]["swell"]["components"]["combined"],
 			 b[1]["swell"]["components"]["combined"]]
 
@@ -80,7 +80,7 @@ def getData(b):
 	main_dict = {}
 	for x in range(10801):
 		time = x
-		main_dict[time] = {
+		main_dict[time+boundTime[0]] = {
 			"swell" : getSwellData(b,swell_gdt,time), 
 			"wind" : getWindData(b,wind_gdt,time)
 		}
@@ -90,7 +90,7 @@ def getData(b):
 def main(id):
 	boundTime = getTime()
 	b = getJSON(id,boundTime)
-	return getData(b)
+	return getData(b, boundTime)
 	
 
 if __name__ == '__main__':

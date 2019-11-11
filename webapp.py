@@ -21,7 +21,9 @@ apiTime = 15
 ### Functions
 def getApiData(id):
 	print("getting data")
+	data_dict.clear()
 	data_dict.update(api.main(id))
+	print(data_dict)
 
 def listener(event):
 	if not event.exception:
@@ -34,15 +36,12 @@ def hello_world():
     return render_template('index.html', message=message)
 
 if __name__ == '__main__':
+		getApiData(1352)
 		scheduler = BackgroundScheduler() # initialise scheduler
 		scheduler.add_listener(listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR)
 		scheduler.add_job(func=getApiData,trigger="interval",args=[1352],seconds=apiTime*60*60)
 		scheduler.start() # start scheduler
 		atexit.register(lambda: scheduler.shutdown()) # kill when exiting app
 		app.run(host = "0.0.0.0", port = 3500, debug = True)	
-
-		print("successfully started server")
-		for job in cron.get_jobs():
-			job.modify(next_run_time=datetime.now())
 
 
