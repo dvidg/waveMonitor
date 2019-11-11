@@ -84,18 +84,18 @@ def getData(b):
 			"swell" : getSwellData(b,swell_gdt,time), 
 			"wind" : getWindData(b,wind_gdt,time)
 		}
+	
+	return main_dict
 
-	print(main_dict)
+def main(id):
+	boundTime = getTime()
+	b = getJSON(id,boundTime)
+	return getData(b)
+	
 
-
-boundTime = getTime()
-p = getJSON(1449,boundTime)
-w = getJSON(1352,boundTime)
-getData(w)
-
-
-
-
+if __name__ == '__main__':
+	# execution as script
+	main(id)
 
 
 """
