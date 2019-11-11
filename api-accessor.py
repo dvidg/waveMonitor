@@ -29,6 +29,28 @@ def getTime():
 
 	return [closestTime - onePointFiveHours, closestTime + onePointFiveHours + 1]
 
+def getWindData(b, gdt, x):
+	wind  = [b[0]["wind"],
+			 b[1]["wind"]]
+
+	wind_data = {
+		"speed": wind[0]["speed"]+gdt[0]*x,
+		"direction": wind[0]["direction"]+gdt[1]*x
+	}
+	return wind_data
+
+def getSwellData(b, gdt, x):
+	swell = [b[0]["swell"]["components"]["combined"],
+			 b[1]["swell"]["components"]["combined"]]
+
+	swell_data = {
+		"height" : swell[0]["height"]+gdt[0]*x,
+		"period" : swell[0]["period"]+gdt[1]*x,
+		"direction" : swell[0]["direction"]+gdt[2]*x
+	}
+
+	return swell_data
+
 def getData(b):
 	swell = [b[0]["swell"]["components"]["combined"],
 			 b[1]["swell"]["components"]["combined"]]
@@ -39,26 +61,32 @@ def getData(b):
 	time_interval = 10801
 
 	# gradients
-	swell_hgt_gdt = (swell[1]["height"]-swell[0]["height"])/time_interval 
-	swell_per_gdt = (swell[1]["period"]-swell[0]["period"])/time_interval
-	swell_dir_gdt = (swell[1]["direction"]-swell[0]["direction"])/time_interval
-	wind_spd_gdt  = (wind[1]["speed"]-wind[0]["speed"])/time_interval
-	wind_dir_gdt  = (wind[1]["direction"]-wind[0]["direction"])/time_interval
+	swell_gdt = [
+		(swell[1]["height"]-swell[0]["height"])/time_interval,
+		(swell[1]["period"]-swell[0]["period"])/time_interval,
+		(swell[1]["direction"]-swell[0]["direction"])/time_interval
+	]
 
-	# time
-	time_elapsed = int(time.time())-boundTime[0]
-	swell_data = {
-		"height" : swell[0]["height"]+swell_hgt_gdt*time_elapsed,
-		"period" : swell[0]["period"]+swell_per_gdt*time_elapsed,
-		"direction" : swell[0]["direction"]+swell_dir_gdt*time_elapsed
-	}
+	wind_gdt = [
+		(wind[1]["speed"]-wind[0]["speed"])/time_interval,
+		(wind[1]["direction"]-wind[0]["direction"])/time_interval
 
-	wind_data = {
-		"speed": wind[0]["speed"]+wind_spd_gdt*time_elapsed,
-		"direction": wind[0]["direction"]+wind_dir_gdt*time_elapsed
-	}
+	]
 
-	print(wind_data.values())
+	# # time
+	# time_elapsed = int(time.time())-boundTime[0]
+	# 
+
+	main_dict = {}
+	for x in range(10801):
+		time = x+boundTime[0]
+		main_dict[time] = {
+			"swell" : getSwellData(b,swell_gdt,time), 
+			"wind" : getWindData(b,wind_gdt,time)
+		}
+
+	print(main_dict)
+
 
 boundTime = getTime()
 p = getJSON(1449,boundTime)
