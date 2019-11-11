@@ -7,12 +7,15 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.events import EVENT_JOB_ERROR, EVENT_JOB_EXECUTED
 from flask import Flask, redirect, url_for, request
 from flask import render_template
+from flask_socketio import SocketIO
 
 api = __import__("api-accessor")
 
 
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+app.config['SECRET_KEY'] = 'vnkdjnfjknfl1232#'
+socketio = SocketIO(app)
 
 ### Globals
 data_dict = {}
@@ -42,6 +45,6 @@ if __name__ == '__main__':
 		scheduler.add_job(func=getApiData,trigger="interval",args=[1352],seconds=apiTime*60*60)
 		scheduler.start() # start scheduler
 		atexit.register(lambda: scheduler.shutdown()) # kill when exiting app
-		app.run(host = "0.0.0.0", port = 3000, debug = True)	
+		socketio.run(app, host = "0.0.0.0", port = 3000, debug = True)	
 		# 3500 desired port | 3000 react port
 
