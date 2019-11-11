@@ -1,5 +1,5 @@
 // scripts.js
-
+/*  EXAMPLE SCRIPT
 // a couple of different backgrounds to style the shop
 var background1 = 'black';
 var background2 = 'firebrick';
@@ -12,3 +12,4 @@ setInterval(function () {
   document.body.style.backgroundColor = (color ? background1 : background2)
   color = !color;
 }, 1000);
+*/

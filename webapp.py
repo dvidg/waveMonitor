@@ -23,7 +23,7 @@ def getApiData(id):
 	print("getting data")
 	data_dict.clear()
 	data_dict.update(api.main(id))
-	print(data_dict)
+	print(len(data_dict.keys()))
 
 def listener(event):
 	if not event.exception:
@@ -31,7 +31,7 @@ def listener(event):
 		print(len(data_dict.keys()))
 
 @app.route('/')
-def hello_world():
+def homepage():
     message = "hello world"
     return render_template('index.html', message=message)
 
@@ -42,6 +42,6 @@ if __name__ == '__main__':
 		scheduler.add_job(func=getApiData,trigger="interval",args=[1352],seconds=apiTime*60*60)
 		scheduler.start() # start scheduler
 		atexit.register(lambda: scheduler.shutdown()) # kill when exiting app
-		app.run(host = "0.0.0.0", port = 3500, debug = True)	
-
+		app.run(host = "0.0.0.0", port = 3000, debug = True)	
+		# 3500 desired port | 3000 react port
 
