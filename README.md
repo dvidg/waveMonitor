@@ -14,3 +14,9 @@ Dependencies:
 # scheduler.add_job(func=print_date_time, trigger="interval", seconds=3)
 # print(api.main(1352))
 
+
+Jquery and Socket.js in frontend
+
+
+## Flask Tutorial
+https://codeburst.io/building-your-first-chat-application-using-flask-in-7-minutes-f98de4adfa5d
