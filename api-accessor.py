@@ -79,7 +79,7 @@ def getData(b):
 
 	main_dict = {}
 	for x in range(10801):
-		time = x+boundTime[0]
+		time = x
 		main_dict[time] = {
 			"swell" : getSwellData(b,swell_gdt,time), 
 			"wind" : getWindData(b,wind_gdt,time)
