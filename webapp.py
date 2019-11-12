@@ -51,7 +51,7 @@ if __name__ == '__main__':
 		getApiData(1352)
 		scheduler = BackgroundScheduler() # initialise scheduler
 		#scheduler.add_listener(listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR)
-		scheduler.add_job(getApiData,trigger="interval",args=[1352],seconds=apiTime*60*60)
+		scheduler.add_job(getApiData,trigger="interval",args=[1352],seconds=apiTime*60)
 		#scheduler.add_job(getData,trigger="interval",seconds=1)
 		scheduler.start() # start scheduler
 		atexit.register(lambda: scheduler.shutdown()) # kill when exiting app
