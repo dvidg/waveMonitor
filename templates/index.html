@@ -2,8 +2,6 @@
 <html lang="en">
   <head>
     <title>WebApp</title>
-  </head>
-  <body>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
@@ -21,11 +19,21 @@
 			}, 1000);
 
 			socket.on( 'returnData', function( msg ) {
-				data = msg
+				windSpd  = msg["wind"]["speed"]
+				windDir  = msg["wind"]["direction"]
+				swellPer = msg["swell"]["period"]
+				swellDir = msg["swell"]["direction"]
+				swellHgt = msg["swell"]["height"] 
+				data=msg
 				document.getElementById('output').innerHTML = JSON.stringify(data)
 				return data
 			} )
     </script>
+	</head>
+	<body>
 		<p id="output"></p>
+		<div class="windArrowHolder">
+			<img id="windArrow" src="../static/arrow.png">	
+		</div>
   </body>
 </html>

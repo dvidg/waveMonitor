@@ -11,3 +11,14 @@ li {
 
 body {
 }
+
+
+.windArrowHolder {
+	width: auto;
+	display: inline-block;
+}
+
+.windArrowHolder img {
+	width: 30%;
+	height: auto;
+}
