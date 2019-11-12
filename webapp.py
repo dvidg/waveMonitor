@@ -23,15 +23,19 @@ apiTime = 15
 
 ### Functions
 def getApiData(id):
-	print("getting data")
 	data_dict.clear()
 	data_dict.update(api.main(id))
-	print(len(data_dict.keys()))
+
+def pushData():
+	#print(data_dict[int(time.time())])
+	try:
+		socketio.emit('waveData', "here2", callback=messageReceived)
+	except:
+		print("server starting")
 
 def listener(event):
-	if not event.exception:
-		print("successfully got data")
-		print(len(data_dict.keys()))
+	if event.exception:
+		print("failed to get data")
 
 @app.route('/')
 def homepage():
@@ -44,16 +48,15 @@ def messageReceived(methods=['GET', 'POST']):
 ### Receiving WebSocket Messages ###
 @socketio.on('my event')
 def handle_my_custom_event(json, methods=['GET', 'POST']):
-    print('received my event: ' + str(json))
+    getApiData(1352)
     socketio.emit('my response', json, callback=messageReceived)
-
-
 
 if __name__ == '__main__':
 		getApiData(1352)
 		scheduler = BackgroundScheduler() # initialise scheduler
 		scheduler.add_listener(listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR)
-		scheduler.add_job(func=getApiData,trigger="interval",args=[1352],seconds=apiTime*60*60)
+		scheduler.add_job(getApiData,trigger="interval",args=[1352],seconds=apiTime*60*60)
+		scheduler.add_job(pushData,trigger="interval",seconds=1)
 		scheduler.start() # start scheduler
 		atexit.register(lambda: scheduler.shutdown()) # kill when exiting app
 		socketio.run(app, host = "0.0.0.0", port = 3000, debug = True)	
