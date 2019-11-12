@@ -25,17 +25,12 @@ apiTime = 15
 def getApiData(id):
 	data_dict.clear()
 	data_dict.update(api.main(id))
+	print("updated data dict")
 
-def pushData():
-	#print(data_dict[int(time.time())])
-	try:
-		socketio.emit('waveData', "here2", callback=messageReceived)
-	except:
-		print("server starting")
-
-def listener(event):
-	if event.exception:
-		print("failed to get data")
+@socketio.on('getData')
+def getData(methods=['GET', 'POST']):
+	json = data_dict[int(time.time())]
+	socketio.emit('returnData', json, callback=messageReceived)
 
 @app.route('/')
 def homepage():
@@ -45,18 +40,19 @@ def homepage():
 def messageReceived(methods=['GET', 'POST']):
     print('message was received!!!')
 
+
 ### Receiving WebSocket Messages ###
 @socketio.on('my event')
 def handle_my_custom_event(json, methods=['GET', 'POST']):
-    getApiData(1352)
-    socketio.emit('my response', json, callback=messageReceived)
+		print("user connected")
+		socketio.emit('my response', "test", callback=messageReceived)
 
 if __name__ == '__main__':
 		getApiData(1352)
 		scheduler = BackgroundScheduler() # initialise scheduler
-		scheduler.add_listener(listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR)
+		#scheduler.add_listener(listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR)
 		scheduler.add_job(getApiData,trigger="interval",args=[1352],seconds=apiTime*60*60)
-		scheduler.add_job(pushData,trigger="interval",seconds=1)
+		#scheduler.add_job(getData,trigger="interval",seconds=1)
 		scheduler.start() # start scheduler
 		atexit.register(lambda: scheduler.shutdown()) # kill when exiting app
 		socketio.run(app, host = "0.0.0.0", port = 3000, debug = True)	
