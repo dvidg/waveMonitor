@@ -48,7 +48,7 @@ def handle_my_custom_event(json, methods=['GET', 'POST']):
 		socketio.emit('my response', "test", callback=messageReceived)
 
 if __name__ == '__main__':
-		getApiData(1352)
+		getApiData(1449)
 		scheduler = BackgroundScheduler() # initialise scheduler
 		#scheduler.add_listener(listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR)
 		scheduler.add_job(getApiData,trigger="interval",args=[1352],seconds=apiTime*60)
