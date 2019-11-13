@@ -22,11 +22,11 @@
 			}, 1000);
 
 			socket.on( 'returnData', function( msg ) {
-				swellData =[msg["swell"]["height"],
-										msg["swell"]["direction"],
-										msg["swell"]["period"]]
-				windData  =[msg["wind"]["speed"],
-										msg["wind"]["direction"]]	
+				swellData =[msg["swell"]["height"].toFixed(2),
+										msg["swell"]["direction"].toFixed(2),
+										msg["swell"]["period"].toFixed(2)]
+				windData  =[msg["wind"]["speed"].toFixed(2),
+										msg["wind"]["direction"].toFixed(2)]	
 				data=msg
 				//document.getElementById('output').innerHTML = JSON.stringify(data)
 				turnArrow(windData ,(windData[0]*2.5),"wind" )
@@ -35,6 +35,7 @@
 			} )
 			// rotate width name
 			function turnArrow(d,w,name) {
+				document.getElementById(name+"Data").innerHTML = d
 				let x = document.getElementById(name+"Arrow");
 				x.style.transform = "rotate("+(d[1]-90)+"deg)"
 				x.style.width = w
@@ -49,11 +50,13 @@
 				<img id="bgimage" src="../static/background.png" style="max-width:500px; height:auto;">
 			</div>
 			<div class="fg" style="z-index: 2; position: absolute; top: 0px; left: 0px;">
-				<div id="windData" style="position: absolute; top: 75px; left: 300px;">
+				<div id="wind" style="position: absolute; top: 75px; left: 300px;">
 					<img id="windArrow" src="../static/arrow.png" style="opacity: 0; max-width:250px; height:auto;">	
+					<p id="windData"></p>
 				</div>
-				<div id="swellData" style="position: absolute; top: 175px; left: 50px;">
+				<div id="swell" style="position: absolute; top: 175px; left: 50px;">
 					<img id="swellArrow" src="../static/arrow.png" style="opacity: 0; max-width:250px; height:auto;">
+					<p id="swellData"></p>
 				</div>
 			</div>
 		</div>
