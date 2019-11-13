@@ -1,6 +1,7 @@
 # Woolacombe 1352 | Porthcawl 1449
 
 import time
+import datetime
 import atexit
 
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -29,7 +30,14 @@ def getApiData(id):
 
 @socketio.on('getData')
 def getData(methods=['GET', 'POST']):
-	json = data_dict[int(time.time())]
+	try:
+		json = data_dict[int(time.time())]
+	except:
+		f= open("keyError.txt","a")
+		f.write(int(time.time()),datetime.datetime.now())
+		f.close()
+		print("key error")
+	
 	socketio.emit('returnData', json, callback=messageReceived)
 
 @app.route('/')
