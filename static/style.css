@@ -1,2 +1,15 @@
 /* static/style.css */
+#background{
+	z-index: 1;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+#fg {
+	z-index: 2;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
 

@@ -44,10 +44,10 @@
 				<img id="bgimage" src="../static/background.png" style="max-width:500px; height:auto;">
 			</div>
 			<div id="fg" style="z-index: 2; position: absolute; top: 0px; left: 0px;">
-				<div id="windData" style="position: absolute; top: 75px; left: 300px;">
+				<div id="windData" style="position: absolute; top: 50px; left: 250px;">
 					<img id="windArrow" src="../static/arrow.png" style="max-width:100px; height:auto;">	
 				</div>
-				<div id="swellData" style="position: absolute; top: 175px; left: 50px;">
+				<div id="swellData">
 					<img id="swellArrow" src="../static/arrow.png" style="max-width:100px; height:auto;">
 				</div>
 			</div>
