@@ -7,6 +7,8 @@ body {
 	-webkit-transition: all 1.0s;
 	-webkit-filter: drop-shadow(5px 5px 5px #222);
   filter: drop-shadow(5px 5px 5px #222);
+	-webkit-filter: invert(1);
+   filter: invert(1);
 }
 
 .container {
@@ -22,4 +24,5 @@ body {
         max-height:100%;
         overflow:auto;
 }
+
 

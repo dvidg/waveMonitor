@@ -38,6 +38,7 @@
 				  let x = document.getElementById(name);
 					x.style.transform = "rotate("+(r-90)+"deg)"
 					x.style.width = w
+					x.style.opacity = 1
 			}
     </script>
 	</head>
@@ -49,10 +50,10 @@
 			</div>
 			<div class="fg" style="z-index: 2; position: absolute; top: 0px; left: 0px;">
 				<div id="windData" style="position: absolute; top: 75px; left: 300px;">
-					<img id="windArrow" src="../static/arrow.png" style="max-width:250px; height:auto;">	
+					<img id="windArrow" src="../static/arrow.png" style="opacity: 0; max-width:250px; height:auto;">	
 				</div>
 				<div id="swellData" style="position: absolute; top: 175px; left: 50px;">
-					<img id="swellArrow" src="../static/arrow.png" style="max-width:250px; height:auto;">
+					<img id="swellArrow" src="../static/arrow.png" style="opacity: 0; max-width:250px; height:auto;">
 				</div>
 			</div>
 		</div>
