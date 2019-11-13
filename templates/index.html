@@ -29,14 +29,13 @@
 										msg["wind"]["direction"]]	
 				data=msg
 				//document.getElementById('output').innerHTML = JSON.stringify(data)
-				turnArrow(windData ,(windData[0]*2.5),"windArrow" )
-				turnArrow(swellData,(swellData[0]*31),"swellArrow")
+				turnArrow(windData ,(windData[0]*2.5),"wind" )
+				turnArrow(swellData,(swellData[0]*31),"swell")
 				return data
 			} )
 			// rotate width name
 			function turnArrow(d,w,name) {
-						
-				let x = document.getElementById(name);
+				let x = document.getElementById(name+"Arrow");
 				x.style.transform = "rotate("+(d[1]-90)+"deg)"
 				x.style.width = w
 				x.style.opacity = 1
