@@ -10,9 +10,11 @@
 			var data
 			var socket = io.connect('http://' + document.domain + ':' + location.port);
       socket.on( 'connect', function() {
-        socket.emit( 'my event', {
-          data: 'User Connected'
-        } )
+        socket.emit( 
+						'getData',
+						'my event', 
+						{ data: 'User Connected' }
+				)
 			} )
 
 			setInterval(function() {

@@ -3,12 +3,14 @@
 import time
 import datetime
 import atexit
+import os
 
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.events import EVENT_JOB_ERROR, EVENT_JOB_EXECUTED
 from flask import Flask, redirect, url_for, request
 from flask import render_template
 from flask_socketio import SocketIO
+from flask import send_from_directory
 
 api = __import__("api-accessor")
 
@@ -23,6 +25,13 @@ data_dict = {}
 apiTime = 15
 
 ### Functions
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+									'favicon.ico',mimetype='image/vnd.microsoft.icon')
+
+
+
 def getApiData(id):
 	data_dict.clear()
 	data_dict.update(api.main(id))
