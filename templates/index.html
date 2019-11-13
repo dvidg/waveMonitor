@@ -1,7 +1,8 @@
-!-- templates/index.html -->
+<!-- templates/index.html -->
 <html lang="en">
   <head>
     <title>WebApp</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
@@ -25,7 +26,7 @@
 				swellDir = msg["swell"]["direction"]
 				swellHgt = msg["swell"]["height"] 
 				data=msg
-				document.getElementById('output').innerHTML = JSON.stringify(data)
+				//document.getElementById('output').innerHTML = JSON.stringify(data)
 				turnArrow(windDir, "windArrow" )
 				turnArrow(swellDir,"swellArrow")
 				return data
@@ -39,11 +40,11 @@
 	</head>
 	<body>
 		<p id="output"></p>
-		<div id="container">
-			<div id="background" style="z-index: 1; position: absolute; top: 0px; left: 0px;">
+		<div class="container">
+			<div class="background" style="z-index: 1; position: absolute; top: 0px; left: 0px;">
 				<img id="bgimage" src="../static/background.png" style="max-width:500px; height:auto;">
 			</div>
-			<div id="fg" style="z-index: 2; position: absolute; top: 0px; left: 0px;">
+			<div class="fg" style="z-index: 2; position: absolute; top: 0px; left: 0px;">
 				<div id="windData" style="position: absolute; top: 75px; left: 300px;">
 					<img id="windArrow" src="../static/arrow.png" style="max-width:100px; height:auto;">	
 				</div>
