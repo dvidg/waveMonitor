@@ -22,21 +22,22 @@
 			}, 1000);
 
 			socket.on( 'returnData', function( msg ) {
-				windSpd  = msg["wind"]["speed"]
-				windDir  = msg["wind"]["direction"]
-				swellPer = msg["swell"]["period"]
-				swellDir = msg["swell"]["direction"]
-				swellHgt = msg["swell"]["height"] 
+				swellData =[msg["swell"]["height"],
+										msg["swell"]["direction"],
+										msg["swell"]["period"]]
+				windData  =[msg["wind"]["speed"],
+										msg["wind"]["direction"]]	
 				data=msg
 				//document.getElementById('output').innerHTML = JSON.stringify(data)
-				turnArrow(windDir ,(windSpd*2.5),"windArrow" )
-				turnArrow(swellDir,(swellHgt*31),"swellArrow")
+				turnArrow(windData ,(windData[0]*2.5),"windArrow" )
+				turnArrow(swellData,(swellData[0]*31),"swellArrow")
 				return data
 			} )
 			// rotate width name
-			function turnArrow(r,w,name) {
+			function turnArrow(d,w,name) {
+						
 				  let x = document.getElementById(name);
-					x.style.transform = "rotate("+(r-90)+"deg)"
+					x.style.transform = "rotate("+(d[1]-90)+"deg)"
 					x.style.width = w
 					x.style.opacity = 1
 			}
