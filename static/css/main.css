@@ -2,6 +2,11 @@ body {
   background-color: black;
 }
 
+.bg {
+	opacity: 0.8;
+}
+
+
 #windArrow, #swellArrow {
 	transition:all 1.0s;
 	-webkit-transition: all 1.0s;
