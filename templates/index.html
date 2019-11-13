@@ -27,22 +27,15 @@
 				swellHgt = msg["swell"]["height"] 
 				data=msg
 				//document.getElementById('output').innerHTML = JSON.stringify(data)
-				turnArrow(windDir, "windArrow" )
-				turnArrow(swellDir,"swellArrow")
-				growArrow((windSpd*2.5),"windArrow" )
-				growArrow((swellHgt*31),"swellArrow")
+				turnArrow(windDir ,(windSpd*2.5),"windArrow" )
+				turnArrow(swellDir,(swellHgt*31),"swellArrow")
 				return data
 			} )
-
-			function growArrow(w, name) {
-				console.log(w)
-				let x = document.getElementById(name);
-				x.style.width = w
-			}
-
-			function turnArrow(w, name) {
+			// rotate width name
+			function turnArrow(r,w,name) {
 				  let x = document.getElementById(name);
-					x.style.transform = "rotate("+ (w-90)  +"deg)"
+					x.style.transform = "rotate("+(r-90)+"deg)"
+					x.style.width = w
 			}
     </script>
 	</head>
