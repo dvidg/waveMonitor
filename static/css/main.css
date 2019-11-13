@@ -1,5 +1,6 @@
 body {
   background-color: black;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 .bg {
@@ -30,4 +31,6 @@ body {
         overflow:auto;
 }
 
-
+#windData, #swellData {
+	color:white;
+}
