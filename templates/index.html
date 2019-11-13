@@ -29,8 +29,16 @@
 				//document.getElementById('output').innerHTML = JSON.stringify(data)
 				turnArrow(windDir, "windArrow" )
 				turnArrow(swellDir,"swellArrow")
+				growArrow((windSpd*2.5),"windArrow" )
+				growArrow((swellHgt*31),"swellArrow")
 				return data
 			} )
+
+			function growArrow(w, name) {
+				console.log(w)
+				let x = document.getElementById(name);
+				x.style.width = w
+			}
 
 			function turnArrow(w, name) {
 				  let x = document.getElementById(name);
@@ -46,10 +54,10 @@
 			</div>
 			<div class="fg" style="z-index: 2; position: absolute; top: 0px; left: 0px;">
 				<div id="windData" style="position: absolute; top: 75px; left: 300px;">
-					<img id="windArrow" src="../static/arrow.png" style="max-width:100px; height:auto;">	
+					<img id="windArrow" src="../static/arrow.png" style="max-width:250px; height:auto;">	
 				</div>
 				<div id="swellData" style="position: absolute; top: 175px; left: 50px;">
-					<img id="swellArrow" src="../static/arrow.png" style="max-width:100px; height:auto;">
+					<img id="swellArrow" src="../static/arrow.png" style="max-width:250px; height:auto;">
 				</div>
 			</div>
 		</div>
