@@ -36,7 +36,9 @@
 			} )
 			// rotate width name
 			function turnArrow(d,w,name) {
-				document.getElementById(name+"Data").innerHTML = d
+				let y = document.getElementById(name+"Data");
+				y.innerHTML = d;
+				y.style.opacity = 1;
 				let x = document.getElementById(name+"Arrow");
 				x.style.transform = "rotate("+(d[1]-90)+"deg)"
 				x.style.width = w

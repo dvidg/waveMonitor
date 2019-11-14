@@ -41,4 +41,6 @@ body {
 
 p {
 	font-family: 'Schoolbell', cursive;	
+	transition: all 1.0s;
+	opacity:0;
 }
