@@ -34,3 +34,8 @@ body {
 #windData, #swellData {
 	color:white;
 }
+
+
+p {
+	font-family: 'Schoolbell', cursive;	
+}
