@@ -41,7 +41,7 @@ def getData(methods=['GET', 'POST']):
 		json = data_dict[int(time.time())]
 	except:
 		f= open("keyError.txt","a")
-		f.write(int(time.time()),datetime.datetime.now())
+		f.write("%s %s\n\n" % int(time.time()), int(datetime.datetime.now()))
 		f.close()
 		print("key error")
 	
