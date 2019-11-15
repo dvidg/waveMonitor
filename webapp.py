@@ -12,7 +12,7 @@ from flask import render_template
 from flask_socketio import SocketIO
 from flask import send_from_directory
 
-api = __import__("api-accessor")
+api = __import__("msw-api")
 
 
 app = Flask(__name__)
