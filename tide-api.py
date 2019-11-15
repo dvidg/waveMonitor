@@ -11,7 +11,7 @@ import urllib.error
 import base64
 
 
-def makeRequest():
+def makeRequest(beachID):
 	# Request header to include key
 	headers = {
 			'Ocp-Apim-Subscription-Key': 'c4249a64c1064f4d893dcb19bee78667',
@@ -24,7 +24,7 @@ def makeRequest():
 
 	try:
 			conn = http.client.HTTPSConnection('admiraltyapi.azure-api.net')
-			conn.request("GET", "/uktidalapi/api/V1/Stations/0512/TidalEvents?%s" % params, "{body}", headers)
+			conn.request("GET", "/uktidalapi/api/V1/Stations/%s/TidalEvents?%s" % (beachID,params), "{body}", headers)
 			response = conn.getresponse()
 			data = response.read()
 			print(data)
@@ -34,4 +34,4 @@ def makeRequest():
 
 
 if __name__ == '__main__':
-  makeRequest()
+  makeRequest("0512")
