@@ -36,9 +36,26 @@
 				return data
 			} )
 			// rotate width name
+			function addLabels(data) {
+				if(data.length==3) {
+					var dataString = [
+							(data[0])+"m",
+							(data[1])+"degrees",
+							(data[2])+"s"
+					];
+				} else {
+					var dataString = [
+							data[0]+"kph",
+              data[1]+"degrees",
+					];
+				}
+				return dataString;
+			}
+
+
 			function turnArrow(d,w,name) {
 				let y = document.getElementById(name+"Data");
-				y.innerHTML = d;
+				y.innerHTML = addLabels(d);
 				y.style.opacity = 1;
 				let x = document.getElementById(name+"Arrow");
 				x.style.transform = "rotate("+(d[1]-90)+"deg)"
