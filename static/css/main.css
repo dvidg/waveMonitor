@@ -36,11 +36,11 @@ body {
 
 #windData, #swellData {
 	color:white;
-}
-
-
-p {
 	font-family: 'Schoolbell', cursive;	
 	transition: all 1.0s;
 	opacity:0;
+}
+
+p {
+	color:white;
 }
