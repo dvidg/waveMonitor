@@ -40,8 +40,8 @@ def getWindData(b, gdt, x):
 	return wind_data
 
 def getSwellData(b, gdt, x):
-	swell = [b[0]["swell"]["components"]["combined"],
-			 b[1]["swell"]["components"]["combined"]]
+	swell = [b[0]["swell"]["components"]["primary"],
+			 b[1]["swell"]["components"]["primary"]]
 
 	swell_data = {
 		"height" : swell[0]["height"]+gdt[0]*x,
