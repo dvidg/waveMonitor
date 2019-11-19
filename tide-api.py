@@ -24,7 +24,8 @@ def makeRequest(beachID):
 
 	try:
 			conn = http.client.HTTPSConnection('admiraltyapi.azure-api.net')
-			conn.request("GET", "/uktidalapi/api/V1/Stations/%s/TidalEvents?%s" % (beachID,params), "{body}", headers)
+			conn.request("GET", "/uktidalapi/api/V1/Stations/%s/TidalEvents?%s" % (beachID,params),\
+																																					"{body}", headers)
 			response = conn.getresponse()
 			data = response.read()
 			conn.close()
@@ -33,7 +34,18 @@ def makeRequest(beachID):
 			print("[Errno {0}] {1}".format(e.errno, e.strerror))
 			return -1
 
+def addDateTime(data):
+	return data	
+
+
+
+def getData(id):
+	tideData = addDateTime(makeRequest(id))
+	return tideData
+
+
+
 
 if __name__ == '__main__':
-  makeRequest("0512")
+	print(getData("0512"))
 	
