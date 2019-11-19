@@ -27,11 +27,13 @@ def makeRequest(beachID):
 			conn.request("GET", "/uktidalapi/api/V1/Stations/%s/TidalEvents?%s" % (beachID,params), "{body}", headers)
 			response = conn.getresponse()
 			data = response.read()
-			print(data)
 			conn.close()
+			return data
 	except Exception as e:
 			print("[Errno {0}] {1}".format(e.errno, e.strerror))
+			return -1
 
 
 if __name__ == '__main__':
   makeRequest("0512")
+	
