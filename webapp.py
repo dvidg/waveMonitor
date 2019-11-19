@@ -12,7 +12,7 @@ from flask import render_template
 from flask_socketio import SocketIO
 from flask import send_from_directory
 
-api = __import__("msw-api")
+msw_api = __import__("msw-api")
 
 
 app = Flask(__name__)
@@ -32,7 +32,7 @@ def favicon():
 
 def getApiData(id):
 	data_dict.clear()
-	data_dict.update(api.main(id))
+	data_dict.update(msw_api.getData(id))
 	print("updated data dict")
 
 @socketio.on('getData')

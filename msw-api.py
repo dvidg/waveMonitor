@@ -51,7 +51,7 @@ def getSwellData(b, gdt, x):
 
 	return swell_data
 
-def getData(b, boundTime):
+def getMainDict(b, boundTime):
 	swell = [b[0]["swell"]["components"]["combined"],
 			 b[1]["swell"]["components"]["combined"]]
 
@@ -87,10 +87,11 @@ def getData(b, boundTime):
 	
 	return main_dict
 
-def main(id):
+def getData(id):
 	boundTime = getTime()
-	b = getJSON(id,boundTime)
-	return getData(b, boundTime)
+	apiResponse = getJSON(id,boundTime)
+	mainDict = getMainDict(apiResponse, boundTime)
+	return mainDict
 	
 
 if __name__ == '__main__':
