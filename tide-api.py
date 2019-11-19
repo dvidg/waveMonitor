@@ -10,6 +10,9 @@ import urllib.parse
 import urllib.error
 import base64
 import json
+import time
+
+duration = 7
 
 def makeRequest(beachID):
 	# Request header to include key
@@ -19,7 +22,7 @@ def makeRequest(beachID):
 
 	# Request parameters
 	params = urllib.parse.urlencode({
-			'duration': '7',
+			'duration': duration,
 	})
 
 	try:
@@ -36,16 +39,19 @@ def makeRequest(beachID):
 			return -1
 
 def addDateTime(data):
-	print(data[0])
-	
-	
+	for x in range(duration):
+		var = data[x]["DateTime"].split(".")[0]
+		p = '%Y-%m-%dT%H:%M:%S'
+		epoch = int(time.mktime(time.strptime(var, p)))
+		data[x].update({"epoch": epoch})
+
+	print(data)
 	return data	
 
 
 
 def getData(id):
-	tideData = makeRequest(id)
-	print(tideData[1])
+	tideData = addDateTime(makeRequest(id))
 	return tideData
 
 
