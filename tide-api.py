@@ -39,15 +39,15 @@ def makeRequest(beachID):
 			return -1
 
 def addEpoch(data):
-	for x in range(duration):
+	for x in range(len(data)):
 		var = data[x]["DateTime"].split(".")[0]
 		p = '%Y-%m-%dT%H:%M:%S'
 		epoch = int(time.mktime(time.strptime(var, p)))
 		data[x].update({"epoch": epoch})
 	return data	
 
-def getData(id):
-	tideData = addEpoch(makeRequest(id))
+def getData(beachID):
+	tideData = addEpoch(makeRequest(beachID))
 	return tideData
 
 if __name__ == '__main__':
