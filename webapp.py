@@ -36,8 +36,8 @@ def getWaveData(s):
 	wave_dict.update(wave_api.getData(s))
 
 def getTideData(t):
-	tide_list = tide_api.getData(t)
-	return tide_list
+	tide_list.clear()
+	tide_list.append(tide_api.getData(t))
 
 def getWaveDataNow():
 	return wave_dict[int(time.time())]
@@ -53,8 +53,7 @@ def favicon():
 
 @socketio.on('tideData')
 def tideData(methods=['GET', 'POST']):
-	tideJSON = getTideData()
-	socketio.emit('returnTideData', tideJSON, callback=messageReceived)
+	socketio.emit('returnTideData', tide_list, callback=messageReceived)
 
 @socketio.on('waveData')
 def waveData(methods=['GET', 'POST']):

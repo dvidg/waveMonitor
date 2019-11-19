@@ -12,15 +12,17 @@
 			var data
 			var socket = io.connect('http://' + document.domain + ':' + location.port);
       socket.on( 'connect', function() {
-        socket.emit( 
-					'waveData',
-					'tideData'
-				)
+        socket.emit('waveData');
+				socket.emit('tideData');
 			})
 
 			setInterval(function() {
-				socket.emit( 'waveData' );
+				socket.emit('waveData');
 			}, 1000);
+
+			setInterval(function() {
+        socket.emit('tideData');
+      }, 1000*60*60*12);
 
 			socket.on( 'returnWaveData', function( msg ) {
 				swellData =[msg["swell"]["height"].toFixed(2),
