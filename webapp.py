@@ -88,9 +88,7 @@ if __name__ == '__main__':
 		# Scheduler
 		scheduler = BackgroundScheduler() # initialise scheduler
 		scheduler.add_job(getWaveData,trigger="interval",args=["1449"],seconds=apiTime*60)
-		scheduler.add_job(getWaveData,trigger="interval",args=["1352"],seconds=apiTime*60+1)
 		scheduler.add_job(getTideData,trigger="interval",args=["0512"],seconds=apiTime*4*12*60)
-		scheduler.add_job(getTideData,trigger="interval",args=["0535"],seconds=apiTime*4*12*60+1)
 		scheduler.start() # start scheduler
 		atexit.register(lambda: scheduler.shutdown()) # kill when exiting app
 
