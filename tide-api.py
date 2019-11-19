@@ -9,7 +9,7 @@ import urllib.request
 import urllib.parse
 import urllib.error
 import base64
-
+import json
 
 def makeRequest(beachID):
 	# Request header to include key
@@ -27,25 +27,30 @@ def makeRequest(beachID):
 			conn.request("GET", "/uktidalapi/api/V1/Stations/%s/TidalEvents?%s" % (beachID,params),\
 																																					"{body}", headers)
 			response = conn.getresponse()
-			data = response.read()
+			data = response.read().decode('utf8')
+			jsonData = json.loads(data)
 			conn.close()
-			return data
+			return jsonData
 	except Exception as e:
 			print("[Errno {0}] {1}".format(e.errno, e.strerror))
 			return -1
 
 def addDateTime(data):
+	print(data[0])
+	
+	
 	return data	
 
 
 
 def getData(id):
-	tideData = addDateTime(makeRequest(id))
+	tideData = makeRequest(id)
+	print(tideData[1])
 	return tideData
 
 
 
 
 if __name__ == '__main__':
-	print(getData("0512"))
+	getData("0512")
 	
