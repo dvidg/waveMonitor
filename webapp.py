@@ -12,48 +12,67 @@ from flask import render_template
 from flask_socketio import SocketIO
 from flask import send_from_directory
 
-msw_api = __import__("msw-api")
+
+### Imported Files
+msw_api  = __import__("msw-api")
+tide_api = __import__("tide-api")
 
 
+### Flask Definitions
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 app.config['SECRET_KEY'] = 'vnkdjnfjknfl1232#'
 socketio = SocketIO(app)
 
 ### Globals
-data_dict = {}
+msw_dict  = {}
+tide_dict = {}
 apiTime = 15
+w = ["1352", "0535"] # Woolacombe
+p = ["1449", "0512"] # Porthcawl
 
 ### Functions
+def getSwellData(s):
+	msw_dict.clear()
+	msw_dict = msw_api.getData(t)
+
+def getTideData(t):
+	tide_dict.clear()
+	tide_dict = tide_api.getData(s)
+
+def getSwellDataNow()
+	return msw_dict[int(time.time())]
+
+def messageReceived(methods=['GET', 'POST']):
+    print('message was received!!!')
+
+### Sockets
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
 									'favicon.ico',mimetype='image/vnd.microsoft.icon')
 
-def getApiData(id):
-	data_dict.clear()
-	data_dict.update(msw_api.getData(id))
-	print("updated data dict")
+@socketio.on('tideData')
+def swellData(methods=['GET', 'POST']):
+	tideJSON = getSwellDataNow()
+	socketio.emit('returnTideData', tideJSON, callback=messageReceived)
 
-@socketio.on('getData')
-def getData(methods=['GET', 'POST']):
+@socketio.on('swellData')
+def swellData(methods=['GET', 'POST']):
 	try:
-		json = data_dict[int(time.time())]
+		swellJSON = getSwellDataNow()
 	except:
 		f= open("keyError.txt","a")
 		f.write("%s %s\n\n" % int(time.time()),datetime.datetime.now())
 		f.close()
 		print("key error %s %s" % int(time.time()),datetime.datetime.now())
 	
-	socketio.emit('returnData', json, callback=messageReceived)
+	socketio.emit('returnSwellData', swellJSON, callback=messageReceived)
 
 @app.route('/')
 def homepage():
     message = "hello world"
     return render_template('index.html', message=message)
-
-def messageReceived(methods=['GET', 'POST']):
-    print('message was received!!!')
 
 
 ### Receiving WebSocket Messages ###
@@ -63,10 +82,13 @@ def handle_my_custom_event(json, methods=['GET', 'POST']):
 		socketio.emit('my response', "test", callback=messageReceived)
 
 if __name__ == '__main__':
-		getApiData(1449)
+		getInitialData(p)
+		getInitialData(w)		
+
+
 		scheduler = BackgroundScheduler() # initialise scheduler
 		#scheduler.add_listener(listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR)
-		scheduler.add_job(getApiData,trigger="interval",args=[1352],seconds=apiTime*60)
+		scheduler.add_job(getApiData,trigger="interval",args=[p[0], msw_dict, msw_api],seconds=apiTime*60)
 		#scheduler.add_job(getData,trigger="interval",seconds=1)
 		scheduler.start() # start scheduler
 		atexit.register(lambda: scheduler.shutdown()) # kill when exiting app
