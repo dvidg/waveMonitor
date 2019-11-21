@@ -47,5 +47,6 @@ p {
 
 .copyright {
 	color:grey;
-	
+	opacity:0.5;
+	font-size:4pt;	
 }
