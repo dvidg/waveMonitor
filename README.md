@@ -25,3 +25,5 @@ https://codeburst.io/building-your-first-chat-application-using-flask-in-7-minut
 APIs:
 	Admiralty
 	MSW
+
+nohup python3 webapp.py &

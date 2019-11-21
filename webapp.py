@@ -92,5 +92,5 @@ if __name__ == '__main__':
 		atexit.register(lambda: scheduler.shutdown()) # kill when exiting app
 
 		# Sockets / Flask Run
-		socketio.run(app, host = "0.0.0.0", port = 3000, debug = True) # 3500 desired port | 3000 react port
+		socketio.run(app, host = "0.0.0.0", port = 3500, debug = True) # 3500 desired port | 3000 react port
 
