@@ -61,9 +61,9 @@ def waveData(methods=['GET', 'POST']):
 		waveJSON = getWaveDataNow()
 	except:
 		f= open("keyError.txt","a")
-		f.write("%s %s\n\n" % int(time.time()),datetime.datetime.now())
+		f.write("{0} {1}".format(int(time.time()),datetime.datetime.now()))
 		f.close()
-		print("key error %s %s" % int(time.time()),datetime.datetime.now())
+		print("key error %s %s" % int(time.timedd()),datetime.datetime.now())
 	socketio.emit('returnWaveData', waveJSON, callback=messageReceived)
 
 @app.route('/')	# initial connection
