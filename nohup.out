@@ -59187,3 +59187,9 @@ Traceback (most recent call last):
 requests.exceptions.ConnectionError: HTTPConnectionPool(host='magicseaweed.com', port=80): Max retries exceeded with url: /api/082f1c64c83ce0ed8ba3f08b805fb6fa/forecast/?spot_id=1449&start=1574402400.0&end=1574413201.0&units=eu (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x74e38c30>: Failed to establish a new connection: [Errno 24] Too many open files',))
  * Detected change in '/home/pi/waveMonitor/webapp.py', reloading
 [Errno 24] Too many open files
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 306-474-586
+(2935) wsgi starting up on http://0.0.0.0:3500
+ * Detected change in '/home/pi/waveMonitor/webapp.py', reloading
+ * Restarting with stat
