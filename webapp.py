@@ -60,11 +60,16 @@ def waveData(methods=['GET', 'POST']):
 	try:
 		waveJSON = getWaveDataNow()
 	except:
-		f= open("keyError.txt","a")
 		dateNow = datetime.datetime.now()
 		timeNow = datetime.datetime.now().replace(second=0,microsecond=0)
-		fileName= dateNow.strftime("%Y%m%d-%H%M%S")
-		
+		fileName= "dictErrors/" + dateNow.strftime("%Y%m%d_%H%M%S")[:-2]+".txt"
+		#Write relevant dict
+		g	= open(fileName,"w+")
+		g.write(waveDict)
+		g.close()
+
+		#Write Key Error
+		f = open("keyError.txt","a")		
 		f.write("{0} {1}".format(int(time.time()),datetime.datetime.now()))
 		f.close()
 		print("{0} {1}".format(int(time.time()),datetime.datetime.now()))
