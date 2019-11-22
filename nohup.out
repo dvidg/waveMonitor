@@ -9,3 +9,5 @@
 192.168.1.10 - - [22/Nov/2019 12:38:06] "POST /socket.io/?EIO=3&transport=polling&t=MwJ7fho&sid=af75104a4f144490bec1c28d7d02bc9f HTTP/1.1" 200 222 0.023008
  * Detected change in '/home/pi/waveMonitor/webapp.py', reloading
  * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 306-474-586
