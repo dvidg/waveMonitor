@@ -64,7 +64,6 @@ def waveData(methods=['GET', 'POST']):
 		f.write("{0} {1}".format(int(time.time()),datetime.datetime.now()))
 		f.close()
 		print("{0} {1}".format(int(time.time()),datetime.datetime.now()))
-
 	socketio.emit('returnWaveData', waveJSON, callback=messageReceived)
 
 @app.route('/')	# initial connection

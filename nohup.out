@@ -59193,3 +59193,31 @@ requests.exceptions.ConnectionError: HTTPConnectionPool(host='magicseaweed.com',
 (2935) wsgi starting up on http://0.0.0.0:3500
  * Detected change in '/home/pi/waveMonitor/webapp.py', reloading
  * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 306-474-586
+(2952) wsgi starting up on http://0.0.0.0:3500
+ * Detected change in '/home/pi/waveMonitor/webapp.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 306-474-586
+(2979) wsgi starting up on http://0.0.0.0:3500
+(2979) accepted ('192.168.1.10', 57345)
+192.168.1.10 - - [22/Nov/2019 11:24:31] "GET /socket.io/?EIO=3&transport=polling&t=MwIspgp HTTP/1.1" 200 349 0.005513
+(2979) accepted ('192.168.1.10', 57346)
+(2979) accepted ('192.168.1.10', 57347)
+192.168.1.10 - - [22/Nov/2019 11:24:31] "POST /socket.io/?EIO=3&transport=polling&t=MwIsphF&sid=9dade60c664d49b6a12e29ceb25ca16c HTTP/1.1" 200 222 0.011060
+192.168.1.10 - - [22/Nov/2019 11:24:31] "GET /socket.io/?EIO=3&transport=polling&t=MwIsphN&sid=9dade60c664d49b6a12e29ceb25ca16c HTTP/1.1" 200 357 0.001736
+post request handler error
+Traceback (most recent call last):
+  File "/home/pi/.local/lib/python3.5/site-packages/engineio/server.py", line 394, in handle_request
+    socket.handle_post_request(environ)
+  File "/home/pi/.local/lib/python3.5/site-packages/engineio/socket.py", line 123, in handle_post_request
+    p = payload.Payload(encoded_payload=body)
+  File "/home/pi/.local/lib/python3.5/site-packages/engineio/payload.py", line 15, in __init__
+    self.decode(encoded_payload)
+  File "/home/pi/.local/lib/python3.5/site-packages/engineio/payload.py", line 76, in decode
+    raise ValueError('Too many packets in payload')
+ValueError: Too many packets in payload
+192.168.1.10 - - [22/Nov/2019 11:24:31] "POST /socket.io/?EIO=3&transport=polling&t=MwIsphr&sid=9dade60c664d49b6a12e29ceb25ca16c HTTP/1.1" 200 222 0.024575
+192.168.1.10 - - [22/Nov/2019 11:24:31] "GET /socket.io/?EIO=3&transport=polling&t=MwIsphs&sid=9dade60c664d49b6a12e29ceb25ca16c HTTP/1.1" 200 183 0.022249
+ * Detected change in '/home/pi/waveMonitor/webapp.py', reloading
