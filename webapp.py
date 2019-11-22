@@ -63,6 +63,7 @@ def waveData(methods=['GET', 'POST']):
 		dateNow = datetime.datetime.now()
 		timeNow = datetime.datetime.now().replace(second=0,microsecond=0)
 		fileName= "dictErrors/" + dateNow.strftime("%Y%m%d_%H%M%S")[:-2]+".txt"
+
 		#Write relevant dict
 		g	= open(fileName,"w+")
 		g.write(waveDict)
@@ -70,11 +71,10 @@ def waveData(methods=['GET', 'POST']):
 
 		#Write Key Error
 		f = open("keyError.txt","a")		
-		f.write("{0} {1}".format(int(time.time()),datetime.datetime.now()))
+		f.write("Key: {0} File: {1}".format(timeNow,dateNow))
 		f.close()
-		print("{0} {1}".format(int(time.time()),datetime.datetime.now()))
+		print("Key: {0} File: {1}".format(timeNow,dateNow))
 		
-
 	socketio.emit('returnWaveData', waveJSON, callback=messageReceived)
 
 @app.route('/')	# initial connection
