@@ -59287,3 +59287,71 @@ ValueError: Too many packets in payload
 192.168.1.10 - - [22/Nov/2019 11:37:36] "POST /socket.io/?EIO=3&transport=polling&t=MwIvpGB&sid=18fed56493294485be648e5671bc54a5 HTTP/1.1" 200 222 0.019009
  * Detected change in '/home/pi/waveMonitor/webapp.py', reloading
  * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 306-474-586
+(3987) wsgi starting up on http://0.0.0.0:3500
+(3987) accepted ('192.168.1.10', 57381)
+192.168.1.10 - - [22/Nov/2019 11:42:42] "GET /socket.io/?EIO=3&transport=polling&t=MwIwzyw HTTP/1.1" 200 349 0.005405
+(3987) accepted ('192.168.1.10', 57382)
+(3987) accepted ('192.168.1.10', 57383)
+192.168.1.10 - - [22/Nov/2019 11:42:42] "POST /socket.io/?EIO=3&transport=polling&t=MwIwzzJ&sid=b065b6c352004d0aa08bebeb47a062a7 HTTP/1.1" 200 222 0.011055
+192.168.1.10 - - [22/Nov/2019 11:42:42] "GET /socket.io/?EIO=3&transport=polling&t=MwIwzzJ.0&sid=b065b6c352004d0aa08bebeb47a062a7 HTTP/1.1" 200 356 0.001692
+192.168.1.10 - - [22/Nov/2019 11:42:42] "GET /socket.io/?EIO=3&transport=polling&t=MwIwzzr&sid=b065b6c352004d0aa08bebeb47a062a7 HTTP/1.1" 200 183 0.001627
+192.168.1.10 - - [22/Nov/2019 11:42:42] "POST /socket.io/?EIO=3&transport=polling&t=MwIwzzf&sid=b065b6c352004d0aa08bebeb47a062a7 HTTP/1.1" 200 222 0.041989
+(3987) accepted ('193.63.64.25', 11990)
+193.63.64.25 - - [22/Nov/2019 11:43:16] "GET / HTTP/1.1" 200 3187 0.030366
+193.63.64.25 - - [22/Nov/2019 11:43:16] "GET /static/css/main.css HTTP/1.1" 304 260 0.006081
+(3987) accepted ('193.63.64.25', 32541)
+(3987) accepted ('193.63.64.25', 49121)
+193.63.64.25 - - [22/Nov/2019 11:43:16] "GET /static/arrow.png HTTP/1.1" 304 263 0.005004
+193.63.64.25 - - [22/Nov/2019 11:43:16] "GET /static/background.png HTTP/1.1" 304 264 0.004811
+193.63.64.25 - - [22/Nov/2019 11:43:16] "GET /socket.io/?EIO=3&transport=polling&t=MwIx6VU HTTP/1.1" 200 349 0.001558
+193.63.64.25 - - [22/Nov/2019 11:43:17] "GET /socket.io/?EIO=3&transport=polling&t=MwIx6V_&sid=5edc29cd0361448e85a93938855d528a HTTP/1.1" 200 357 0.000935
+193.63.64.25 - - [22/Nov/2019 11:43:17] "POST /socket.io/?EIO=3&transport=polling&t=MwIx6V-&sid=5edc29cd0361448e85a93938855d528a HTTP/1.1" 200 233 0.007929
+(3987) accepted ('193.63.64.25', 25883)
+193.63.64.25 - - [22/Nov/2019 11:43:17] "POST /socket.io/?EIO=3&transport=polling&t=MwIx6Wa&sid=5edc29cd0361448e85a93938855d528a HTTP/1.1" 200 233 0.011939
+193.63.64.25 - - [22/Nov/2019 11:43:17] "GET /socket.io/?EIO=3&transport=polling&t=MwIx6WZ&sid=5edc29cd0361448e85a93938855d528a HTTP/1.1" 200 183 0.016561
+193.63.64.25 - - [22/Nov/2019 11:43:18] "GET /socket.io/?EIO=3&transport=websocket&sid=5edc29cd0361448e85a93938855d528a HTTP/1.1" 200 0 1.242737
+193.63.64.25 - - [22/Nov/2019 11:43:23] "GET / HTTP/1.1" 200 3187 0.003504
+193.63.64.25 - - [22/Nov/2019 11:43:23] "GET /static/css/main.css HTTP/1.1" 304 260 0.004842
+193.63.64.25 - - [22/Nov/2019 11:43:23] "GET /socket.io/?EIO=3&transport=polling&t=MwIx88B HTTP/1.1" 200 349 0.002713
+193.63.64.25 - - [22/Nov/2019 11:43:23] "GET /static/background.png HTTP/1.1" 304 264 0.008826
+193.63.64.25 - - [22/Nov/2019 11:43:23] "GET /static/arrow.png HTTP/1.1" 304 263 0.008798
+(3987) accepted ('193.63.64.25', 21571)
+193.63.64.25 - - [22/Nov/2019 11:43:23] "POST /socket.io/?EIO=3&transport=polling&t=MwIx89M&sid=4b6ce529060c4c91b0fa838b0a1d75a8 HTTP/1.1" 200 233 0.014338
+193.63.64.25 - - [22/Nov/2019 11:43:23] "GET /socket.io/?EIO=3&transport=polling&t=MwIx89P&sid=4b6ce529060c4c91b0fa838b0a1d75a8 HTTP/1.1" 200 183 0.010983
+193.63.64.25 - - [22/Nov/2019 11:43:26] "GET /socket.io/?EIO=3&transport=websocket&sid=4b6ce529060c4c91b0fa838b0a1d75a8 HTTP/1.1" 200 0 2.678787
+(3987) accepted ('193.63.64.25', 30577)
+193.63.64.25 - - [22/Nov/2019 11:43:40] "GET / HTTP/1.1" 200 3187 0.003329
+193.63.64.25 - - [22/Nov/2019 11:43:40] "GET /static/css/main.css HTTP/1.1" 304 260 0.004892
+193.63.64.25 - - [22/Nov/2019 11:43:40] "GET /socket.io/?EIO=3&transport=polling&t=MwIxCEX HTTP/1.1" 200 349 0.001698
+(3987) accepted ('193.63.64.25', 11381)
+(3987) accepted ('193.63.64.25', 47947)
+193.63.64.25 - - [22/Nov/2019 11:43:40] "GET /static/background.png HTTP/1.1" 304 264 0.004895
+193.63.64.25 - - [22/Nov/2019 11:43:40] "GET /static/arrow.png HTTP/1.1" 304 263 0.004708
+193.63.64.25 - - [22/Nov/2019 11:43:40] "GET /socket.io/?EIO=3&transport=polling&t=MwIxCF7&sid=6748c965da83402e8f31bc0fdd2adf36 HTTP/1.1" 200 358 0.000942
+193.63.64.25 - - [22/Nov/2019 11:43:40] "POST /socket.io/?EIO=3&transport=polling&t=MwIxCF6&sid=6748c965da83402e8f31bc0fdd2adf36 HTTP/1.1" 200 233 0.008049
+(3987) accepted ('193.63.64.25', 23681)
+193.63.64.25 - - [22/Nov/2019 11:43:40] "POST /socket.io/?EIO=3&transport=polling&t=MwIxCFa&sid=6748c965da83402e8f31bc0fdd2adf36 HTTP/1.1" 200 233 0.011007
+193.63.64.25 - - [22/Nov/2019 11:43:40] "GET /socket.io/?EIO=3&transport=polling&t=MwIxCFZ&sid=6748c965da83402e8f31bc0fdd2adf36 HTTP/1.1" 200 183 0.015703
+193.63.64.25 - - [22/Nov/2019 11:43:43] "GET /socket.io/?EIO=3&transport=websocket&sid=6748c965da83402e8f31bc0fdd2adf36 HTTP/1.1" 200 0 2.699460
+192.168.1.10 - - [22/Nov/2019 11:56:16] "GET /socket.io/?EIO=3&transport=websocket&sid=b065b6c352004d0aa08bebeb47a062a7 HTTP/1.1" 200 0 814.176369
+(3987) accepted ('192.168.1.10', 57395)
+192.168.1.10 - - [22/Nov/2019 11:56:18] "GET /socket.io/?EIO=3&transport=polling&t=MwI-5E0 HTTP/1.1" 200 349 0.001621
+(3987) accepted ('192.168.1.10', 57396)
+(3987) accepted ('192.168.1.10', 57397)
+192.168.1.10 - - [22/Nov/2019 11:56:18] "POST /socket.io/?EIO=3&transport=polling&t=MwI-5EM&sid=12a269d3a26d486f9d49899a1b584ee5 HTTP/1.1" 200 222 0.005831
+192.168.1.10 - - [22/Nov/2019 11:56:18] "GET /socket.io/?EIO=3&transport=polling&t=MwI-5EM.0&sid=12a269d3a26d486f9d49899a1b584ee5 HTTP/1.1" 200 357 0.000995
+192.168.1.10 - - [22/Nov/2019 11:56:18] "GET /socket.io/?EIO=3&transport=polling&t=MwI-5Ei&sid=12a269d3a26d486f9d49899a1b584ee5 HTTP/1.1" 200 183 0.000958
+192.168.1.10 - - [22/Nov/2019 11:56:18] "POST /socket.io/?EIO=3&transport=polling&t=MwI-5Ea&sid=12a269d3a26d486f9d49899a1b584ee5 HTTP/1.1" 200 222 0.016538
+192.168.1.10 - - [22/Nov/2019 11:57:39] "GET /socket.io/?EIO=3&transport=websocket&sid=12a269d3a26d486f9d49899a1b584ee5 HTTP/1.1" 200 0 81.048466
+192.168.1.10 - - [22/Nov/2019 12:33:45] "GET /socket.io/?EIO=3&transport=polling&t=MwJ6fzn HTTP/1.1" 200 349 0.001572
+192.168.1.10 - - [22/Nov/2019 12:33:45] "GET /socket.io/?EIO=3&transport=polling&t=MwJ6f-0.0&sid=dd7ee7566d2f4faf842136bed91f3142 HTTP/1.1" 200 369 0.001024
+(3987) accepted ('192.168.1.10', 57406)
+192.168.1.10 - - [22/Nov/2019 12:33:45] "POST /socket.io/?EIO=3&transport=polling&t=MwJ6f-0&sid=dd7ee7566d2f4faf842136bed91f3142 HTTP/1.1" 200 222 0.008203
+192.168.1.10 - - [22/Nov/2019 12:33:45] "GET /socket.io/?EIO=3&transport=polling&t=MwJ6f-D&sid=dd7ee7566d2f4faf842136bed91f3142 HTTP/1.1" 200 183 0.005792
+192.168.1.10 - - [22/Nov/2019 12:33:45] "POST /socket.io/?EIO=3&transport=polling&t=MwJ6f-F&sid=dd7ee7566d2f4faf842136bed91f3142 HTTP/1.1" 200 222 0.011209
+ * Detected change in '/home/pi/waveMonitor/webapp.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 306-474-586

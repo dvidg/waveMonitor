@@ -1,6 +1,5 @@
 .DS_STORE
 *.swp
-log.txt
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

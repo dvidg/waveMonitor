@@ -5,6 +5,7 @@ import time
 import datetime
 import atexit
 import os
+import subprocess
 
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.events import EVENT_JOB_ERROR, EVENT_JOB_EXECUTED
@@ -31,6 +32,9 @@ tide_list = []
 apiTime = 15
 
 ### Functions
+def moveLogs():
+	subprocess.call(['./moveLogs.sh'])
+
 def getWaveData(s):
 	wave_dict.clear()
 	wave_dict.update(wave_api.getData(s))
@@ -100,6 +104,7 @@ if __name__ == '__main__':
 		scheduler = BackgroundScheduler() # initialise scheduler
 		scheduler.add_job(getWaveData,trigger="interval",args=["1449"],seconds=apiTime*60)
 		scheduler.add_job(getTideData,trigger="interval",args=["0512"],seconds=apiTime*4*12*60)
+		scheduler.add_job(moveLogs,trigger="interval",seconds=24*60*60)
 		scheduler.start() # start scheduler
 		atexit.register(lambda: scheduler.shutdown()) # kill when exiting app
 
