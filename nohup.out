@@ -1,0 +1,11 @@
+(5524) wsgi starting up on http://0.0.0.0:3500
+(5524) accepted ('192.168.1.10', 57416)
+192.168.1.10 - - [22/Nov/2019 12:38:06] "GET /socket.io/?EIO=3&transport=polling&t=MwJ7fhA HTTP/1.1" 200 349 0.003275
+(5524) accepted ('192.168.1.10', 57417)
+(5524) accepted ('192.168.1.10', 57418)
+192.168.1.10 - - [22/Nov/2019 12:38:06] "POST /socket.io/?EIO=3&transport=polling&t=MwJ7fhX&sid=af75104a4f144490bec1c28d7d02bc9f HTTP/1.1" 200 222 0.007343
+192.168.1.10 - - [22/Nov/2019 12:38:06] "GET /socket.io/?EIO=3&transport=polling&t=MwJ7fhY&sid=af75104a4f144490bec1c28d7d02bc9f HTTP/1.1" 200 371 0.001589
+192.168.1.10 - - [22/Nov/2019 12:38:06] "GET /socket.io/?EIO=3&transport=polling&t=MwJ7fhw&sid=af75104a4f144490bec1c28d7d02bc9f HTTP/1.1" 200 183 0.001152
+192.168.1.10 - - [22/Nov/2019 12:38:06] "POST /socket.io/?EIO=3&transport=polling&t=MwJ7fho&sid=af75104a4f144490bec1c28d7d02bc9f HTTP/1.1" 200 222 0.023008
+ * Detected change in '/home/pi/waveMonitor/webapp.py', reloading
+ * Restarting with stat

@@ -34,6 +34,7 @@ apiTime = 15
 ### Functions
 def moveLogs():
 	subprocess.call(['./moveLogs.sh'])
+	print("moved logs")
 
 def getWaveData(s):
 	wave_dict.clear()
