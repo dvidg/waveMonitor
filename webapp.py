@@ -63,6 +63,8 @@ def waveData(methods=['GET', 'POST']):
 		f= open("keyError.txt","a")
 		dateNow = datetime.datetime.now()
 		timeNow = datetime.datetime.now().replace(second=0,microsecond=0)
+		fileName= dateNow.strftime("%Y%m%d-%H%M%S")
+		
 		f.write("{0} {1}".format(int(time.time()),datetime.datetime.now()))
 		f.close()
 		print("{0} {1}".format(int(time.time()),datetime.datetime.now()))
