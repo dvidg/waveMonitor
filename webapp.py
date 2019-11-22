@@ -70,10 +70,11 @@ def waveData(methods=['GET', 'POST']):
 		g.close()
 
 		#Write Key Error
+		errorString = "Key: {0} File: {1}".format(timeNow,dateNow)
 		f = open("keyError.txt","a")		
-		f.write("Key: {0} File: {1}".format(timeNow,dateNow))
+		f.write(errorString)
 		f.close()
-		print("Key: {0} File: {1}".format(timeNow,dateNow))
+		print(errorString)
 		
 	socketio.emit('returnWaveData', waveJSON, callback=messageReceived)
 

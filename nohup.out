@@ -59274,3 +59274,16 @@ ValueError: Too many packets in payload
 192.168.1.10 - - [22/Nov/2019 11:35:40] "POST /socket.io/?EIO=3&transport=polling&t=MwIvN9C&sid=a4f02f222d2445eeb18f97f224dc217a HTTP/1.1" 200 222 0.020646
  * Detected change in '/home/pi/waveMonitor/webapp.py', reloading
  * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 306-474-586
+(3803) wsgi starting up on http://0.0.0.0:3500
+(3803) accepted ('192.168.1.10', 57374)
+192.168.1.10 - - [22/Nov/2019 11:37:35] "GET /socket.io/?EIO=3&transport=polling&t=MwIvpFa HTTP/1.1" 200 349 0.003019
+(3803) accepted ('192.168.1.10', 57375)
+(3803) accepted ('192.168.1.10', 57376)
+192.168.1.10 - - [22/Nov/2019 11:37:36] "POST /socket.io/?EIO=3&transport=polling&t=MwIvpFx&sid=18fed56493294485be648e5671bc54a5 HTTP/1.1" 200 222 0.007237
+192.168.1.10 - - [22/Nov/2019 11:37:36] "GET /socket.io/?EIO=3&transport=polling&t=MwIvpFy&sid=18fed56493294485be648e5671bc54a5 HTTP/1.1" 200 358 0.000951
+192.168.1.10 - - [22/Nov/2019 11:37:36] "GET /socket.io/?EIO=3&transport=polling&t=MwIvpGH&sid=18fed56493294485be648e5671bc54a5 HTTP/1.1" 200 183 0.000915
+192.168.1.10 - - [22/Nov/2019 11:37:36] "POST /socket.io/?EIO=3&transport=polling&t=MwIvpGB&sid=18fed56493294485be648e5671bc54a5 HTTP/1.1" 200 222 0.019009
+ * Detected change in '/home/pi/waveMonitor/webapp.py', reloading
+ * Restarting with stat
