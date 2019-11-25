@@ -39,8 +39,7 @@
 
 			
 			socket.on( 'returnTideData', function( msg ) {
-				var data = "hello";
-				document.getElementById('tideApp').value=data;
+				document.getElementById('tideApp').value=msg;
 			})
 
 
@@ -91,7 +90,7 @@
 			</div>
 		</div>
 		<div class="tide">
-			<script id="tideApp" src="../static/tideApp.js"></script> 
+			<script id="tideApp" src="../static/tideApp.js" data="valueasdija"></script> 
 		</div>
   </body>
 	<footer>
