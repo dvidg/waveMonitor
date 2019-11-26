@@ -6,6 +6,7 @@ import datetime
 import atexit
 import os
 import subprocess
+import logging
 
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.events import EVENT_JOB_ERROR, EVENT_JOB_EXECUTED
@@ -25,6 +26,8 @@ app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 app.config['SECRET_KEY'] = 'vnkdjnfjknfl1232#'
 socketio = SocketIO(app)
+log = logging.getLogger('werkzeug')
+log.setLevel(logging.ERROR)
 
 ### Globals
 wave_dict = {}
